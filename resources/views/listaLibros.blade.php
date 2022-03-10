@@ -1,4 +1,13 @@
-<x-layout>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
     <h1>Listado de libros</h1>
     <a href="libros/create">Añadir libro</a> <a href="index">Inicio</a>
     <div class="container p-4">
@@ -36,4 +45,5 @@
             @endforeach
         </table>
     </div>
-</x-layout>
+</body>
+</html>

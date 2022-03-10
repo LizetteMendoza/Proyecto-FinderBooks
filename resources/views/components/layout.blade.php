@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -32,7 +32,7 @@
                         <li><a class="dropdown-item" href="#!">Ajustes</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="">Cerrar sesión</a></li>
+                        <li><a class="dropdown-item" href="#!">Cerrar sesión</a></li>
                     </ul>
                 </li>
             </ul>
@@ -108,54 +108,16 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4"><img src="{{asset('img/book1.png')}}" alt="">FinderBook </h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">La plataforma de reseñas de libros</li>
-                        </ol>
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white">
-                                    <div class="card-body">Agrega libros</div>
-                                </div>
-                                <div class="card bg-info text-white mb-4">
-                                    <div class="card-body">Podras ingresar tantos libros como quieras</div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white">
-                                    <div class="card-body">Editar libros</div>
-                                </div>
-                                <div class="card bg-warning bg-opacity-75 text-white mb-4">
-                                    <div class="card-body">Podras modificar los datos de los libros que hayas ingresado</div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white">
-                                    <div class="card-body">Borrar libros</div>
-                                </div>
-                                <div class="card bg-success bg-opacity-75 text-white mb-4">
-                                    <div class="card-body">Elimina libros que no quieras seguir compartiendo</div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white">
-                                    <div class="card-body">Libro en detalle</div>
-                                </div>
-                                <div class="card bg-danger bg-opacity-75 text-white mb-4">
-                                    <div class="card-body">Muestra en detalle los datos de un libro</div>
-                                </div>
-                            </div>
-                        </div>
+                    {{$slot}}
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; FinderBook 2022</div>
                             <div>
-                                <a href="policy">Privacy Policy</a>
+                                <a href="#">Privacy Policy</a>
                                 &middot;
-                                <a href="terms">Terms &amp; Conditions</a>
+                                <a href="#">Terms &amp; Conditions</a>
                             </div>
                         </div>
                     </div>
