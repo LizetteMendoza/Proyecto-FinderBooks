@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
     <title>Index</title>
 </head>
 <body>
@@ -12,6 +13,7 @@
     <table>
         <tr>
             <th>ID</th>
+            <th>Usuario</th>
             <th>Titulo</th>
             <th>Autor</th>
             <th>Año</th>
@@ -23,6 +25,7 @@
         @foreach ($libros as $libro)
         <tr>
             <td>{{$libro->id}}</td>
+            <td>{{$libro->user->name}}</td>
             <td>{{$libro->titulo}}</td>
             <td>{{$libro->autor}}</td>
             <td>{{$libro->year}}</td>
@@ -35,7 +38,7 @@
                 <form action="libros/{{$libro->id}}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <input type="submit" value="Borrar">
+                    <input type="submit" class="btn btn-primary active" value="Borrar">
                 </form>
             </td>
         </tr>

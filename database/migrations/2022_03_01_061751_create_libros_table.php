@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('libros', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); //nombre de la tabla en singular _id
             $table->string('titulo');
             $table->string('autor');
             $table->year('year');

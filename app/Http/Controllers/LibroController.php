@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Libro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LibroController extends Controller
 {
+    
+    public function __construct(){
+        $this->middleware('auth')->except(['ndex','show']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -45,6 +51,7 @@ class LibroController extends Controller
         ]);
 
         $libro = new Libro();
+        $libro->user_id = Auth::id();
         $libro->titulo = $request->titulo;
         $libro->autor = $request->autor;
         $libro->year = $request->year;
