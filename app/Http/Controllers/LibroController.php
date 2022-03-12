@@ -24,6 +24,12 @@ class LibroController extends Controller
         return view('/libros.indexLibros', compact('libros'));
     }
 
+    public function all()
+    {
+        $libros = Libro::all();
+        return view('/libros.listaLibros', compact('libros'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -101,7 +107,8 @@ class LibroController extends Controller
             'autor'=> 'required',
             'year'=> 'required',
             'genero'=> 'required',
-            'puntaje'=> 'required'
+            'puntaje'=> 'required',
+            'comentario' => 'comentario'
         ]);
         
         $libro->titulo = $request->titulo;

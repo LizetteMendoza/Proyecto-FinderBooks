@@ -33,14 +33,6 @@
                 <td>{{$libro->genero}}</td>
                 <td>{{$libro->puntaje}}</td>
                 <td>{{$libro->comentario}}</td>
-                <td><a href="libros/{{$libro->id}}" class="btn btn-info text-white m-1">Detalles</a>
-                    <a href="libros/{{$libro->id}}/edit" class="btn btn-info text-white  m-1">Editar</a>
-                    <form action="libros/{{$libro->id}}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <input type="submit" class="btn btn-danger active" value="Borrar">
-                    </form>
-                </td>
             </tr>
             @endforeach
         </table>
