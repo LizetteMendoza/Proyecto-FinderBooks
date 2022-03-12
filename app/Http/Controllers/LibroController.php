@@ -46,8 +46,9 @@ class LibroController extends Controller
             'titulo'=> 'required',
             'autor'=> 'required',
             'year'=> 'required',
-            'genero'=> 'required',
-            'puntaje'=> 'required'
+            'genero'=> 'required', //excepción 
+            'puntaje'=> 'required', //excepción
+            'comentario' => 'required'
         ]);
 
         $libro = new Libro();

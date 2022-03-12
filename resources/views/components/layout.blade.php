@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -32,7 +32,7 @@
                         <li><a class="dropdown-item" href="#!">Ajustes</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Cerrar sesión</a></li>
+                        <li><a class="dropdown-item" href="">Cerrar sesión</a></li>
                     </ul>
                 </li>
             </ul>
@@ -47,6 +47,8 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 FinderBook 
                             </a>
+
+
                             <!--<div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -59,6 +61,8 @@
                                     <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
                                 </nav>
                             </div>-->
+
+
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Páginas
@@ -72,8 +76,8 @@
                                     </a>
                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login">Iniciar sesión</a>
-                                            <a class="nav-link" href="register">Registrarse</a>
+                                            <a class="nav-link" href="../auth/login">Iniciar sesión</a>
+                                            <a class="nav-link" href="../auth/register">Registrarse</a>
                                             <a class="nav-link" href="password.html">recuperar contraseña</a>
                                         </nav>
                                     </div>
@@ -83,8 +87,9 @@
                                     </a>
                                     <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="libros/">Ver listado de libro</a>
-                                            <a class="nav-link" href="libros/create">Agregar nuevo libro</a>
+                                            <a class="nav-link" href="/libros">Ver listado general de libros</a>
+                                            <a class="nav-link" href="/index">Editar Libro</a>
+                                            <a class="nav-link" href="/libros/create">Agregar nuevo libro</a>
                                         </nav>
                                     </div>
                                 </nav>
@@ -108,16 +113,16 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    {{$slot}}
+                   {{$slot}}
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; FinderBook 2022</div>
                             <div>
-                                <a href="#">Privacy Policy</a>
+                                <a href="policy">Privacy Policy</a>
                                 &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                                <a href="terms">Terms &amp; Conditions</a>
                             </div>
                         </div>
                     </div>

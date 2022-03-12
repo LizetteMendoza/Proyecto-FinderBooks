@@ -1,5 +1,5 @@
 <x-layout>
-    <h1>Editar libro</h1>
+    <h1><img src="{{asset('img/edit.png')}}" alt=""> Editar libro</h1>
     <div class="container p-4">
     <form action="/libros/{{$libro->id}}" method="POST" class="px-4 py-3"> {{--Editar--}} 
         @method('PATCH')
@@ -38,17 +38,17 @@
         </div>
         <div  class="input-group mb-4 p-4">
             <label  class="input-group-text btn-info"  for="puntaje">Puntaje</label><br>
-            <select class="form-select"  name="puntaje" id="genero"><br>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
+            <select class="form-select"  name="puntaje" id="puntaje"><br>
+                <option value="1" {{isset($libro)&& $libro->puntaje=='1' ? 'selected': ''}}>1</option>
+                <option value="2" {{isset($libro)&& $libro->puntaje=='2' ? 'selected': ''}}>2</option>
+                <option value="3" {{isset($libro)&& $libro->puntaje=='3' ? 'selected': ''}}>3</option>
+                <option value="4" {{isset($libro)&& $libro->puntaje=='4' ? 'selected': ''}}>4</option>
+                <option value="5" {{isset($libro)&& $libro->puntaje=='5' ? 'selected': ''}}>5</option>
+                <option value="6" {{isset($libro)&& $libro->puntaje=='6' ? 'selected': ''}}>6</option>
+                <option value="7" {{isset($libro)&& $libro->puntaje=='7' ? 'selected': ''}}>7</option>
+                <option value="8" {{isset($libro)&& $libro->puntaje=='8' ? 'selected': ''}}>8</option>
+                <option value="9" {{isset($libro)&& $libro->puntaje=='9' ? 'selected': ''}}>9</option>
+                <option value="10" {{isset($libro)&& $libro->puntaje=='10' ? 'selected': ''}}>10</option>
             </select><br>
         </div>
         <div class="form-group p-4">

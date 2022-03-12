@@ -83,7 +83,8 @@
                                     </a>
                                     <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="libros/">Ver listado de libro</a>
+                                            <a class="nav-link" href="libros/">Ver listado general de libros</a>
+                                            <a class="nav-link" href="libros/">Editar Libro</a>
                                             <a class="nav-link" href="libros/create">Agregar nuevo libro</a>
                                         </nav>
                                     </div>

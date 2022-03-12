@@ -1,5 +1,5 @@
 <x-layout>
-    <h1>Agregar libro</h1>
+    <h1><img src="{{asset('img/add.png')}}" alt="">Agregar libro</h1>
     <div class="container p-4">
       <form action="/libros" method="POST"> {{--Crear--}}
           @csrf
@@ -20,12 +20,13 @@
           <div  class="input-group mb-4 p-4">
             <label class="input-group-text btn-info" for="genero">Genero</label>
             <select class="form-select" name="genero" id="genero">
-                <option value="Novela">Novela</option>
-                <option value="Academico">Académico</option>
-                <option value="Ficcion">Ficción</option>
-                <option value="Fantasia">Fantasia</option>
-                <option value="Historia">Historico</option>
-                <option value="Filosofia">Filosofia</option>
+                <option value=""></option>
+                <option value="Novela"{{isset($libro)&& $libro->genero=='Novela' ? 'selected': ''}}>Novela</option>
+                <option value="Academico"{{isset($libro)&& $libro->genero=='Academico' ? 'selected': ''}}>Académico</option>
+                <option value="Ficcion" {{isset($libro)&& $libro->genero=='Ficcion' ? 'selected': ''}}>Ficción</option>
+                <option value="Fantasia" {{isset($libro)&& $libro->genero=='Fantasia' ? 'selected': ''}}>Fantasia</option>
+                <option value="Historia" {{isset($libro)&& $libro->genero=='Historia' ? 'selected': ''}}>Historico</option>
+                <option value="Filosofia" {{isset($libro)&& $libro->genero=='Filosofia' ? 'selected': ''}}>Filosofia</option>
             </select>
           </div>
           <div class="form-group p-4">
@@ -37,7 +38,8 @@
           </div>
           <div  class="input-group mb-4 p-4">
             <label class="input-group-text btn-info" for="puntaje">Puntaje</label>
-            <select class="form-select" name="puntaje" id="genero">
+            <select class="form-select" name="puntaje" id="puntaje">
+                <option value=""></option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>

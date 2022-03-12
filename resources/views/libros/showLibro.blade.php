@@ -2,9 +2,9 @@
     <h1>Especificaciones del libro</h1>
     <h3>Usuario: {{$libro->user->name}}</h3>
     <a href="/libros">Inicio</a>
-        <div class="container p-4">
+    <div class="container-fluid px-4">
         <table class="table">
-            <tr>
+            <tr class="p-3 mb-2 bg-info text-white">
                 <th>ID</th>
                 <th>Titulo</th>
                 <th>Autor</th>
