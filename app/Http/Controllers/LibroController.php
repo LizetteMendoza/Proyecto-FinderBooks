@@ -20,7 +20,7 @@ class LibroController extends Controller
      */
     public function index()
     {
-        $libros = Libro::all();
+        $libros = Auth::user()->libros;
         return view('/libros.indexLibros', compact('libros'));
     }
 
