@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LibroController;
+use App\Models\Libro;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,8 @@ Route::get('/index', function () {
 });
 
 Route::resource('/libros', LibroController::class);
+
+Route::get('/all', [LibroController::class, 'all']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

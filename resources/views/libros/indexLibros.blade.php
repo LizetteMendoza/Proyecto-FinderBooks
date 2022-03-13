@@ -14,7 +14,7 @@
                 <th>Genero</th>
                 <th>Puntaje</th>
                 <th>Comentario</th>
-                <th>Acciones</th>
+               <th>Acciones</th>
             </tr>
             @foreach ($libros as $libro)
             <tr>
@@ -41,3 +41,5 @@
     </div>
     </div>
 </x-layout>
+
+
