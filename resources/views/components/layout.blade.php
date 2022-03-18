@@ -78,7 +78,11 @@
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="/login">Iniciar sesión</a>
                                             <a class="nav-link" href="/register">Registrarse</a>
-                                            <a class="nav-link" href="/logout">Cerrar sesión</a>
+                                            <form method="POST" action="http://libros.test/logout">
+                                                @csrf
+                                              <a class="nav-link" href="http://libros.test/logout" onclick="event.preventDefault();                 
+                                               this.closest('form').submit();">Cerrar sesión</a>
+                                             </form>
                                         </nav>
                                     </div>
                                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
