@@ -1,6 +1,6 @@
 <x-layout>
-    <h1><img src="{{asset('img/edit.png')}}" alt=""> Editar libro</h1>
-    <div class="container p-4">
+    <h1 class='text-center text-info'><img src="{{asset('img/edit.png')}}" alt=""> Editar libro</h1>
+    <div class="container p-5">
     <form action="/libros/{{$libro->id}}" method="POST" class="px-4 py-3"> {{--Editar--}} 
         @method('PATCH')
         @csrf

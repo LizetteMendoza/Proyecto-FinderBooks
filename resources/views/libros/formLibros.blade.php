@@ -1,6 +1,6 @@
 <x-layout>
-    <h1><img src="{{asset('img/add.png')}}" alt="">Agregar libro</h1>
-    <div class="container p-4">
+    <h1 class="text-info text-center"><img src="{{asset('img/add.png')}}" alt="">Agregar libro</h1>
+    <div class="container p-5">
       <form action="/libros" method="POST"> {{--Crear--}}
           @csrf
           <div class="form-group p-4">

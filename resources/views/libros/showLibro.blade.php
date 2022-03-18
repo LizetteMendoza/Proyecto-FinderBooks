@@ -1,7 +1,7 @@
 <x-layout>
-    <h1>Especificaciones del libro</h1>
-    <h3>Usuario: {{$libro->user->name}}</h3>
-    <a href="/libros">Inicio</a>
+    <h1 class="text-center text-info"><img src="{{asset('img/det.png')}}" alt=""> Especificaciones del libro</h1>
+    <h3 class="text-primary ms-4">Usuario: {{$libro->user->name}}</h3>
+    <!--<a href="/libros">Inicio</a>-->
     <div class="container-fluid px-4">
         <table class="table">
             <tr class="p-3 mb-2 bg-info text-white">
