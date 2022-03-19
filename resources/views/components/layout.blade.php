@@ -45,7 +45,7 @@
                             <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" href="/index">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                FinderBook 
+                                FinderBook
                             </a>
 
 
@@ -80,7 +80,7 @@
                                             <a class="nav-link" href="/register">Registrarse</a>
                                             <form method="POST" action="http://libros.test/logout">
                                                 @csrf
-                                              <a class="nav-link" href="http://libros.test/logout" onclick="event.preventDefault();                 
+                                              <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault();
                                                this.closest('form').submit();">Cerrar sesión</a>
                                              </form>
                                         </nav>
