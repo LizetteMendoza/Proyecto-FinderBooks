@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Libro;
+use App\Models\Genero;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,7 +38,8 @@ class LibroController extends Controller
      */
     public function create()
     {
-        return view('/libros.formLibros');
+        $generos = Genero::all();
+        return view('/libros.formLibros', compact('generos'));
     }
 
     /**
@@ -52,12 +54,28 @@ class LibroController extends Controller
             'titulo'=> 'required',
             'autor'=> 'required',
             'year'=> 'required',
-            'genero'=> 'required', //excepción 
+            'genero_id'=> 'required', //excepción 
             'puntaje'=> 'required', //excepción
             'comentario' => 'required'
         ]);
 
-        $libro = new Libro();
+        $request->merge(['user_id'=> Auth::id()]);
+        $libro = Libro::create($request->all());
+
+        $libro->generos()->attach($request->genero_id);
+
+        /*$libro = Libro::create([
+            'user_id' => Auth::id(),
+            'titulo' => $request->titulo,
+            'autor' => $request->autor,
+            'year' => $request->year,
+            'genero' => $request->genero,
+            'puntaje' => $request->puntaje,
+            'comentario' => $request->comentario
+        ]);*/
+
+        //No se recomienda para actividades que no sean del usuario, ejemp: admon. 
+        /*$libro = new Libro();
         $libro->user_id = Auth::id();
         $libro->titulo = $request->titulo;
         $libro->autor = $request->autor;
@@ -66,7 +84,10 @@ class LibroController extends Controller
         $libro->puntaje = $request->puntaje;
         $libro->comentario = $request->comentario;
 
-        $libro->save();
+        $libro->save();*/
+
+        //$user  = Auth::user();
+        //$user->libros()->save($libro);
 
         return redirect('/libros');
     }
@@ -90,7 +111,8 @@ class LibroController extends Controller
      */
     public function edit(Libro $libro)
     {
-        return view('/libros.formEdit', compact('libro'));
+        $generos = Genero::all();
+        return view('/libros.formEdit', compact('libro', 'generos'));
     }
 
     /**
@@ -106,19 +128,23 @@ class LibroController extends Controller
             'titulo'=> 'required',
             'autor'=> 'required',
             'year'=> 'required',
-            'genero'=> 'required', //excepción 
+            'genero_id'=> 'required', //excepción 
             'puntaje'=> 'required', //excepción
             'comentario' => 'required'
         ]);
         
-        $libro->titulo = $request->titulo;
+        /*$libro->titulo = $request->titulo;
         $libro->autor = $request->autor;
         $libro->year = $request->year;
         $libro->genero = $request->genero;
         $libro->puntaje = $request->puntaje;
         $libro->comentario = $request->comentario;
 
-        $libro->save();
+        $libro->save();*/
+
+        Libro::where('id', $libro->id)->update($request->except(['_token', '_method', 'genero_id']));
+
+        $libro->generos()->sync($request->genero_id);
 
         return redirect('/libros');
     }

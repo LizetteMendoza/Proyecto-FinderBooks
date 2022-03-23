@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('titulo');
             $table->string('autor');
             $table->year('year');
-            $table->string('genero',20);
             $table->integer('puntaje');
             $table->text('comentario');
             $table->timestamps();

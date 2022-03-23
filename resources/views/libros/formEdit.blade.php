@@ -20,14 +20,11 @@
         </div>
         <div  class="input-group mb-4 p-4">
             <label class="input-group-text btn-info" for="genero" >Genero</label><br>
-            <select class="form-select" name="genero" id="genero"><br>
-                <option value="Novela"{{isset($libro)&& $libro->genero=='Novela' ? 'selected': ''}}>Novela</option>
-                <option value="Academico"{{isset($libro)&& $libro->genero=='Academico' ? 'selected': ''}}>Académico</option>
-                <option value="Ficcion"{{isset($libro)&& $libro->genero=='Ficcion' ? 'selected': ''}}>Ficción</option>
-                <option value="Fantasia"{{isset($libro)&& $libro->genero=='Fantasia' ? 'selected': ''}}>Fantasia</option>
-                <option value="Historia"{{isset($libro)&& $libro->genero=='Historia' ? 'selected': ''}}>Historico</option>
-                <option value="Filosofia"{{isset($libro)&& $libro->genero=='Filosofia' ? 'selected': ''}}>Filosofia</option>
-            </select><br>
+            <select class="form-select" name="genero_id">
+                @foreach ($generos as $genero)
+                  <option value="{{$genero->id}}"{{isset($generos)&& array_search($genero->id, $libro->generos->pluck('id')->toArray())!== false ? 'selected': ''}}>{{$genero->genero}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group p-4">
             <label  for="year">Año</label><br>

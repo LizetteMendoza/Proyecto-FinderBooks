@@ -14,7 +14,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="/index">FinderBook NavBar</a>
+            <a class="navbar-brand ps-3" href="/">FinderBook NavBar</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -32,7 +32,15 @@
                         <li><a class="dropdown-item" href="#!">Ajustes</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="">Cerrar sesión</a></li>
+                        <li><form method="POST" action="{{route('logout')}}">
+                            @csrf
+                            <a class="dropdown-item"href="{{route('logout')}}" onclick="event.preventDefault();
+                            this.closest('form').submit();">Cerrar sesión</a>
+                            </form>    
+                        </li>
+                        
+                          
+                         
                     </ul>
                 </li>
             </ul>
@@ -42,9 +50,9 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="/index">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-sidenav-menu-heading">Principal</div>
+                            <a class="nav-link" href="/">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 FinderBook
                             </a>
 
@@ -78,7 +86,7 @@
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="/login">Iniciar sesión</a>
                                             <a class="nav-link" href="/register">Registrarse</a>
-                                            <form method="POST" action="http://libros.test/logout">
+                                            <form method="POST" action="{{route('logout')}}">
                                                 @csrf
                                               <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault();
                                                this.closest('form').submit();">Cerrar sesión</a>
@@ -111,7 +119,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        FinderBook User
                     </div>
                 </nav>
             </div>
