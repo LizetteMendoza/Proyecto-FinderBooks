@@ -18,7 +18,11 @@
                 <td>{{$libro->titulo}}</td>
                 <td>{{$libro->autor}}</td>
                 <td>{{$libro->year}}</td>
-                <td>{{$libro->genero}}</td>
+                <td>
+                    @foreach ($libro->generos as $genero)
+                    {{$genero->genero}} <br>
+                    @endforeach
+                </td>
                 <td>{{$libro->puntaje}}</td>
                 <td>{{$libro->comentario}}</td>
             </tr>
