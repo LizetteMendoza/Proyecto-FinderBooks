@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LibroController extends Controller
 {
-    
+
     public function __construct(){
         $this->middleware('auth')->except(['all']);
     }
@@ -22,12 +22,14 @@ class LibroController extends Controller
     public function index()
     {
         $libros = Auth::user()->libros;
+        //$libros= Libro::with('generos')->get();
         return view('/libros.indexLibros', compact('libros'));
     }
 
     public function all()
     {
-        $libros = Libro::all();
+        $libros= Libro::with('generos','user')->get();
+        //$libros = Libro::all();
         return view('/libros.listaLibros', compact('libros'));
     }
 
@@ -54,7 +56,7 @@ class LibroController extends Controller
             'titulo'=> 'required',
             'autor'=> 'required',
             'year'=> 'required',
-            'genero_id'=> 'required', //excepción 
+            'genero_id'=> 'required', //excepción
             'puntaje'=> 'required', //excepción
             'comentario' => 'required'
         ]);
@@ -74,7 +76,7 @@ class LibroController extends Controller
             'comentario' => $request->comentario
         ]);*/
 
-        //No se recomienda para actividades que no sean del usuario, ejemp: admon. 
+        //No se recomienda para actividades que no sean del usuario, ejemp: admon.
         /*$libro = new Libro();
         $libro->user_id = Auth::id();
         $libro->titulo = $request->titulo;
@@ -128,11 +130,11 @@ class LibroController extends Controller
             'titulo'=> 'required',
             'autor'=> 'required',
             'year'=> 'required',
-            'genero_id'=> 'required', //excepción 
+            'genero_id'=> 'required', //excepción
             'puntaje'=> 'required', //excepción
             'comentario' => 'required'
         ]);
-        
+
         /*$libro->titulo = $request->titulo;
         $libro->autor = $request->autor;
         $libro->year = $request->year;
