@@ -1,7 +1,7 @@
 <x-layout>
     <h1 class='text-center text-info'><img src="{{asset('img/edit.png')}}" alt=""> Editar libro</h1>
     <div class="container p-5">
-    <form action="/libros/{{$libro->id}}" method="POST" class="px-4 py-3"> {{--Editar--}} 
+    <form action="/libros/{{$libro->id}}" method="POST" class="px-4 py-3"> {{--Editar--}}
         @method('PATCH')
         @csrf
         <div class="form-group p-4">
@@ -20,7 +20,7 @@
         </div>
         <div  class="input-group mb-4 p-4">
             <label class="input-group-text btn-info" for="genero" >Genero</label><br>
-            <select class="form-select" name="genero_id">
+            <select class="form-select" name="genero_id" multiple>
                 @foreach ($generos as $genero)
                   <option value="{{$genero->id}}"{{isset($generos)&& array_search($genero->id, $libro->generos->pluck('id')->toArray())!== false ? 'selected': ''}}>{{$genero->genero}}</option>
                 @endforeach

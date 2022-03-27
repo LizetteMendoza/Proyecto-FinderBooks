@@ -8,22 +8,22 @@
             <input type="text" class="form-control" name="titulo" value="{{old('titulo')}}">
             @error('titulo')
                 <div class="alert alert-danger">{{$message}}</div>
-            @enderror 
+            @enderror
           </div>
           <div class="form-group p-4">
             <label for="autor">Autor</label><br>
             <input type="text" class="form-control" name="autor" value="{{old('autor')}}">
             @error('autor')
                 <div class="alert alert-danger">{{$message}}</div>
-            @enderror 
+            @enderror
           </div>
           <div  class="input-group mb-4 p-4">
             <label class="input-group-text btn-info" for="genero_id">Genero</label>
-            <select class="form-select" name="genero_id">
+            <select class="form-select" name="genero_id" multiple>
                 @foreach ($generos as $genero)
                   <option value="{{$genero->id}}">{{$genero->genero}}</option>
                 @endforeach
-                
+
             </select>
           </div>
           <div class="form-group p-4">
