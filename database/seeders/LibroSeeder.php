@@ -16,10 +16,11 @@ class LibroSeeder extends Seeder
     public function run()
     {
         DB::table('libros')->insert([
+            'user_id' => 1,
             'titulo' => '100 años de soledad', 
             'autor' => 'Gabriel Garcia Marquez',
             'year' => 1967,
-            'genero' => 'novela',
+            'genero_id' => '1',
             'puntaje' => 9,
             'comentario' => 'interesante, emotiva e inspiradora',
             'created_at' => now(),

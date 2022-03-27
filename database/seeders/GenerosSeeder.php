@@ -18,10 +18,13 @@ class GenerosSeeder extends Seeder
         Genero::create(['genero'=>'Novela']);
         Genero::create(['genero'=>'Académico']);
         Genero::create(['genero'=>'Cuento']);
+        Genero::create(['genero'=>'Economía']);
         Genero::create(['genero'=>'Social']);
         Genero::create(['genero'=>'Fantasia']);
-        Genero::create(['genero'=>'Novela']);
-        Genero::create(['genero'=>'ciencia y tecnología']);
-        Genero::create(['genero'=>'política']);
+        Genero::create(['genero'=>'Comics']);
+        Genero::create(['genero'=>'Filosofía']);
+        Genero::create(['genero'=>'Política']);
+        Genero::create(['genero'=>'Ciencia y tecnología']);
+        
     }
 }
