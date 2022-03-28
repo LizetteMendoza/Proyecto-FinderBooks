@@ -20,7 +20,7 @@
         </div>
         <div  class="input-group mb-4 p-4">
             <label class="input-group-text btn-info" for="genero" >Genero</label><br>
-            <select class="form-select" name="genero_id" multiple>
+            <select class="form-select" name="genero_id[]" multiple>
                 @foreach ($generos as $genero)
                   <option value="{{$genero->id}}"{{isset($generos)&& array_search($genero->id, $libro->generos->pluck('id')->toArray())!== false ? 'selected': ''}}>{{$genero->genero}}</option>
                 @endforeach

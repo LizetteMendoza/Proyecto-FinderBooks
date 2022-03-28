@@ -20,7 +20,7 @@
                 <td>{{$libro->year}}</td>
                 <td>
                     @foreach ($libro->generos as $genero)
-                    {{$genero->genero}} <br>
+                        {{$genero->genero}} <br>
                     @endforeach
                 </td>
                 <td>{{$libro->puntaje}}</td>

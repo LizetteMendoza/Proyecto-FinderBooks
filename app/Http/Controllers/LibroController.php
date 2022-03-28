@@ -62,6 +62,8 @@ class LibroController extends Controller
         ]);
 
         $request->merge(['user_id'=> Auth::id()]);
+
+        
         $libro = Libro::create($request->all());
 
         $libro->generos()->attach($request->genero_id);
