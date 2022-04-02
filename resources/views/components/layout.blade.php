@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -102,6 +102,7 @@
                                             <a class="nav-link" href="/libros">Mis libros</a>
                                             <a class="nav-link" href="/all">Listado General</a>
                                             <a class="nav-link" href="/libros/create">Agregar libro</a>
+                                            <a class="nav-link" href="/enviar-reporte">Enviar correo</a>
                                         </nav>
                                     </div>
                                 </nav>

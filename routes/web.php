@@ -32,13 +32,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-/*Route::middleware(['auth', 'verified'])->group(function(){
-    Route::get('index', function(){
-        return view('index');
-    });
-
-    Route::get('contacto', function(){
-        return view('contacto');
-    });
-});*/
-
+Route::get('enviar-reporte', [LibroController::class, 'enviarNotificacion']);

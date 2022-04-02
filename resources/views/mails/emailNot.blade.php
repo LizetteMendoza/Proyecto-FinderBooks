@@ -10,9 +10,9 @@
     <h1>Envío de correo de verificación </h1>
 
     <ul>
-        @foreach ($libros as $ibro)
+        @foreach ($libros as $libro)
+            <li>{{$libro->titulo}}</li>
         @endforeach
-        <li>{{libro->titulo}}</li>
     </ul>
 
 
