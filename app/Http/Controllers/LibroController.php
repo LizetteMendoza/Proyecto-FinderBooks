@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Mail\Bandeja;
 use App\Models\Libro;
 use App\Models\Genero;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class LibroController extends Controller
 {
@@ -163,5 +164,11 @@ class LibroController extends Controller
     {
         $libro->delete();
         return redirect('/libros');
+    }
+
+    public function enviarNotificacion(){
+        Mail::to(Auth::user()->email)->send(new Bandeja());
+
+        return redirect()->back();
     }
 }

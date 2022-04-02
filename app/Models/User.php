@@ -9,8 +9,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
@@ -61,5 +63,22 @@ class User extends Authenticatable
 
     public function libros(){
         return $this->hasMany(Libro::class);
+    }
+
+    protected function name(): Attribute{
+
+        return Attribute::make(
+            get: fn ($value) => strtoupper($value),
+            //set: fn ($value) => strtolower($value),
+        );
+    }
+
+
+    //Muestra el nombre de usuario en mayusculas y su email
+    protected function nombreCorreo(): Attribute{
+
+        return Attribute::make(
+            get: fn ($value) => strtoupper($this->name). "(".$this->email.")",
+        );
     }
 }

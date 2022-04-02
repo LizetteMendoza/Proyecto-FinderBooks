@@ -19,14 +19,26 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/index', function () {
+/*Route::get('/index', function () {
     return view('index');
-});
+});*/
 
 Route::resource('/libros', LibroController::class);
 
 Route::get('/all', [LibroController::class, 'all']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('index');
 })->name('dashboard');
+
+
+/*Route::middleware(['auth', 'verified'])->group(function(){
+    Route::get('index', function(){
+        return view('index');
+    });
+
+    Route::get('contacto', function(){
+        return view('contacto');
+    });
+});*/
+
