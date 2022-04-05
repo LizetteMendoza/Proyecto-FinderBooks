@@ -13,6 +13,7 @@
                     <th>Genero</th>
                     <th>Puntaje</th>
                     <th>Comentario</th>
+                    <th>Contacto</th>
                 </tr>
                 @foreach ($libros as $libro)
                 <tr>
@@ -28,6 +29,7 @@
                         </td>
                     <td>{{$libro->puntaje}}</td>
                     <td>{{$libro->comentario}}</td>
+                    <td><a class="btn btn-primary active"  href="{{route('contacto', $libro->user->id)}}">Contactar</a></td>
                 </tr>
                 @endforeach
             </table>

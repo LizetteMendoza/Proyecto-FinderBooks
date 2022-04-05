@@ -35,7 +35,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::get('enviar-reporte', [LibroController::class, 'enviarNotificacion']);
+Route::get('enviar-reporte/{user}', [LibroController::class, 'enviarNotificacion'])->name('contacto');
 
 //Envio de form para administradores
 Route::get('contacto', [ContactoController::class, 'index'])->name('contacto.index');

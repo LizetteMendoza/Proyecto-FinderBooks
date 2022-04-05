@@ -7,13 +7,9 @@
     <title>Autenticación</title>
 </head>
 <body>
-    <h1>Envío de correo de verificación </h1>
+    <h1 class="mt-4 text-info text-center p-4">Envío de correo de contacto</h1>
 
-    <ul>
-        @foreach ($libros as $libro)
-            {{$libro->user->correo_usuario}}<br>
-        @endforeach
-    </ul>
+    <p>Hola Martin, soy {{$usuario->name}}  te quiero contactar, este es mi correo {{$usuario->email}}</p>
 
 </body>
 </html>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\Bandeja;
 use App\Models\Libro;
+use App\Models\User;
 use App\Models\Genero;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -166,8 +167,8 @@ class LibroController extends Controller
         return redirect('/libros');
     }
 
-    public function enviarNotificacion(){
-        Mail::to(Auth::user()->email)->send(new Bandeja());
+    public function enviarNotificacion(User $user){
+        Mail::to($user->email)->send(new Bandeja());
 
         return redirect()->back();
     }

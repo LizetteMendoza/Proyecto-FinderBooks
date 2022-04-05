@@ -15,7 +15,7 @@ class Bandeja extends Mailable
 
     public $contacto = "este es el mensaje";
     public $libros;
-    public $libroU;
+    public $usuario;
 
     /**
      * Create a new message instance.
@@ -25,7 +25,8 @@ class Bandeja extends Mailable
     public function __construct()
     {
         $this->libros = Libro::all();
-        $this->libroU = Auth::user()->get('email');
+        $this->usuario = Auth::user();
+        //$this->libroU = Auth::user()->get('email');
 
     }
 
