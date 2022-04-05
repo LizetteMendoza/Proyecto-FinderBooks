@@ -81,4 +81,11 @@ class User extends Authenticatable implements MustVerifyEmail
             get: fn ($value) => strtoupper($this->name). "(".$this->email.")",
         );
     }
+
+    protected function correoUsuario(): Attribute{
+
+        return Attribute::make(
+            get: fn ($value) => $this->email,
+        );
+    }
 }

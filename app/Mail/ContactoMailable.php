@@ -2,31 +2,25 @@
 
 namespace App\Mail;
 
-use App\Models\Libro;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Auth;
 
-class Bandeja extends Mailable
+class ContactoMailable extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $contacto = "este es el mensaje";
-    public $libros;
-    public $libroU;
+    public $contacto;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($contacto)
     {
-        $this->libros = Libro::all();
-        $this->libroU = Auth::user()->get('email');
-
+        $this->contacto = $contacto;
     }
 
     /**
@@ -36,7 +30,6 @@ class Bandeja extends Mailable
      */
     public function build()
     {
-        return //$this->from('FinderBook@mail.com', 'Notificacion')->
-        $this->view('mails.emailNot', );
+        return $this->view('mails.enviarEmail');
     }
 }

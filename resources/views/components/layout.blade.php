@@ -103,6 +103,7 @@
                                             <a class="nav-link" href="/all">Listado General</a>
                                             <a class="nav-link" href="/libros/create">Agregar libro</a>
                                             <a class="nav-link" href="/enviar-reporte">Enviar correo</a>
+                                            <a class="nav-link" href="/contacto">Contactanos</a>
                                         </nav>
                                     </div>
                                 </nav>

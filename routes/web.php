@@ -3,6 +3,9 @@
 use App\Http\Controllers\LibroController;
 use App\Models\Libro;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactoController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +36,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::get('enviar-reporte', [LibroController::class, 'enviarNotificacion']);
+
+//Envio de form para administradores
+Route::get('contacto', [ContactoController::class, 'index'])->name('contacto.index');
+
+Route::post('contacto', [ContactoController::class, 'store'])->name('contacto.store');

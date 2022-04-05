@@ -17,7 +17,7 @@
                 @foreach ($libros as $libro)
                 <tr>
                     <td>{{$libro->id}}</td>
-                    <td>{{$libro->user->nombre_correo}}</td> <!--Llama al metodo para mostrar el correo-->
+                    <td>{{$libro->user->correo_usuario}}</td> <!--Llama al metodo para mostrar el correo-->
                     <td>{{$libro->titulo}}</td>
                     <td>{{$libro->autor}}</td>
                     <td>{{$libro->year}}</td>

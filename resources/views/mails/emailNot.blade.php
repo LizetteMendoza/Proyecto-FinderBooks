@@ -11,10 +11,9 @@
 
     <ul>
         @foreach ($libros as $libro)
-            <li>{{$libro->titulo}}</li>
+            {{$libro->user->correo_usuario}}<br>
         @endforeach
     </ul>
-
 
 </body>
 </html>
