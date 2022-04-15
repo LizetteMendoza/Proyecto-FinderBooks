@@ -6,14 +6,14 @@
         @csrf
         <div class="form-group p-4">
             <label for="titulo">Titulo</label><br>
-            <input type="text" class="form-control" name="titulo" value="{{isset($libro)? $libro->titulo:''}}{{old('titulo')}}"><br>
+            <input type="text" class="form-control" name="titulo" value="{{isset($libro)? $libro->titulo:''}}{{old('titulo')}}" required><br>
             @error('titulo')
                 <div class="alert alert-danger">{{$message}}</div>
             @enderror <br>
         </div>
         <div class="form-group p-4">
             <label for="autor" >Autor</label><br>
-            <input type="text" class="form-control" name="autor" value="{{isset($libro)? $libro->autor: ''}}{{old('autor')}}"><br>
+            <input type="text" class="form-control" name="autor" value="{{isset($libro)? $libro->autor: ''}}{{old('autor')}}" required><br>
             @error('autor')
                 <div class="alert alert-danger">{{$message}}</div>
             @enderror <br>
@@ -28,7 +28,7 @@
         </div>
         <div class="form-group p-4">
             <label  for="year">Año</label><br>
-            <input type="text" class="form-control" name="year" value="{{isset($libro)? $libro->year: ''}}{{old('year')}}"><br>
+            <input type="text" class="form-control" name="year" value="{{isset($libro)? $libro->year: ''}}{{old('year')}}" required><br>
             @error('year')
                 <div class="alert alert-danger">{{$message}}</div>
             @enderror

@@ -95,7 +95,7 @@ class LibroController extends Controller
         //$user  = Auth::user();
         //$user->libros()->save($libro);
 
-        return redirect('/libros');
+        return redirect('/libros')->with('crear','ok');;
     }
 
     /**
@@ -152,7 +152,7 @@ class LibroController extends Controller
 
         $libro->generos()->sync($request->genero_id);
 
-        return redirect('/libros');
+        return redirect('/libros')->with('editar','ok');
     }
 
     /**
@@ -164,7 +164,7 @@ class LibroController extends Controller
     public function destroy(Libro $libro)
     {
         $libro->delete();
-        return redirect('/libros');
+        return redirect('/libros')->with('eliminar','ok');
     }
 
     public function enviarNotificacion(User $user){

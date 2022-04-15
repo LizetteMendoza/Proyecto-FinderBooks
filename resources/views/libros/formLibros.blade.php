@@ -5,14 +5,14 @@
           @csrf
           <div class="form-group p-4">
             <label for="titulo">Titulo</label><br>
-            <input type="text" class="form-control" name="titulo" value="{{old('titulo')}}">
+            <input type="text" class="form-control" name="titulo" value="{{old('titulo')}}" required>
             @error('titulo')
                 <div class="alert alert-danger">{{$message}}</div>
             @enderror
           </div>
           <div class="form-group p-4">
             <label for="autor">Autor</label><br>
-            <input type="text" class="form-control" name="autor" value="{{old('autor')}}">
+            <input type="text" class="form-control" name="autor" value="{{old('autor')}}" required>
             @error('autor')
                 <div class="alert alert-danger">{{$message}}</div>
             @enderror
@@ -28,7 +28,7 @@
           </div>
           <div class="form-group p-4">
             <label for="year">Año</label>
-            <input type="text" class="form-control" name="year" value="{{old('year')}}">
+            <input type="text" class="form-control" name="year" value="{{old('year')}}" required>
             @error('year')
                 <div class="alert alert-danger">{{$message}}</div>
             @enderror
