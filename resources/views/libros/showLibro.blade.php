@@ -27,5 +27,6 @@
                 <td>{{$libro->comentario}}</td>
             </tr>
         </table>
+        <img width="300px" src="{{Storage::url($libro->portada)}}">
     </div>
 </x-layout>

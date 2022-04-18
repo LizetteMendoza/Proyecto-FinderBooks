@@ -1,7 +1,7 @@
 <x-layout>
     <h1 class="text-info text-center"><img src="{{asset('img/add.png')}}" alt="">Agregar libro</h1>
     <div class="container p-5">
-      <form action="/libros" method="POST"> {{--Crear--}}
+      <form action="/libros" enctype="multipart/form-data" method="POST"> {{--Crear--}}
           @csrf
           <div class="form-group p-4">
             <label for="titulo">Titulo</label><br>
@@ -49,6 +49,15 @@
                 <option value="10">10</option>
             </select>
           </div>
+
+          <div class="form-group p-4">
+            <label for="imagen">Imagen</label>
+            <input accept="image/*" type="file" class="form-control" name="imagen">
+            @error('imagen')
+                <div class="alert alert-danger">{{$message}}</div>
+            @enderror
+          </div>
+
           <div class="form-group p-4">
             <label for="comentario">Comentario</label>
             <textarea class="form-control" name="comentario" id="comentario" cols="30" rows="10">{{old('comentario')}}</textarea>

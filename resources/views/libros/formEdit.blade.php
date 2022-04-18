@@ -1,7 +1,7 @@
 <x-layout>
     <h1 class='text-center text-info'><img src="{{asset('img/edit.png')}}" alt=""> Editar libro</h1>
     <div class="container p-5">
-    <form action="/libros/{{$libro->id}}" method="POST" class="px-4 py-3"> {{--Editar--}}
+    <form action="/libros/{{$libro->id}}" enctype="multipart/form-data" method="POST" class="px-4 py-3"> {{--Editar--}}
         @method('PATCH')
         @csrf
         <div class="form-group p-4">
@@ -47,6 +47,15 @@
                 <option value="9" {{isset($libro)&& $libro->puntaje=='9' ? 'selected': ''}}>9</option>
                 <option value="10" {{isset($libro)&& $libro->puntaje=='10' ? 'selected': ''}}>10</option>
             </select><br>
+        </div>
+        
+        <div class="form-group p-4">
+            <img width="300px" src="{{Storage::url($libro->portada)}}"><br>
+            <br><label for="imagen">Imagen</label>
+            <input accept="image/*" type="file" class="form-control" name="imagen">
+            @error('imagen')
+                <div class="alert alert-danger">{{$message}}</div>
+            @enderror
         </div>
         <div class="form-group p-4">
             <label for="comentario">Comentario</label><br>

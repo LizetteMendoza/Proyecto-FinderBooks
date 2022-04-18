@@ -14,7 +14,7 @@ class Libro extends Model
         return $this->belongsTo(User::class);
     }
 
-    protected $fillable = ['user_id','titulo','autor','year','puntaje','comentario'];
+    protected $fillable = ['user_id','titulo','autor','year','puntaje','portada','comentario'];
 
     public function generos(){
         return $this->belongsToMany(Genero::class);

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('autor');
             $table->integer('year');
             $table->integer('puntaje');
+            $table->string('portada')->default('default.jpg');
             $table->text('comentario');
             $table->timestamps();
         });

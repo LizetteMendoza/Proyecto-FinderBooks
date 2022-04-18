@@ -13,6 +13,7 @@
                 <th>Año</th>
                 <th>Genero</th>
                 <th>Puntaje</th>
+                <th>Portada</th>
                 <th>Comentario</th>
                <th>Acciones</th>
             </tr>
@@ -29,6 +30,7 @@
                     @endforeach
                     </td>
                 <td>{{$libro->puntaje}}</td>
+                <td><img width="70px" src="{{Storage::url($libro->portada)}}"></td>
                 <td>{{$libro->comentario}}</td>
                 <td><a href="libros/{{$libro->id}}" class="btn btn-success text-white m-1">Detalles <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-stars" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z"/>
@@ -40,7 +42,7 @@
                     <form id="Borrar" action="libros/{{$libro->id}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <input type="submit" id="formSubmit" class="btn btn-danger active" value="Borrar"> 
+                        <input type="button" id="formSubmit" class="btn btn-danger active" onclick="detener(event);" value="Borrar"> 
                     </form>
                 </td>
             </tr>
@@ -78,10 +80,9 @@
     </script>
     @endif
 
-    <script>
-        formSubmit.addEventListener("click", function(event){
-            event.preventDefault(); 
-
+    <script type="text/javascript">
+        function detener(evt){
+            evt.preventDefault();
             Swal.fire({
             title: '¿Está seguro?',
             text: "Este libro se eliminará definitivamente!",
@@ -93,10 +94,12 @@
             cancelButtonText: 'Cancelar',
             }).then((result) => {
             if (result.isConfirmed) {
-                Borrar.submit();
+                document.getElementById("Borrar").submit();
             }
             })
-        });
+
+
+        };
     </script>
     
 </x-layout>

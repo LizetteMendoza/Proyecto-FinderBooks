@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Mail\Bandeja;
 use App\Models\Libro;
 use App\Models\User;
@@ -9,6 +10,7 @@ use App\Models\Genero;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class LibroController extends Controller
 {
@@ -54,21 +56,26 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'titulo'=> 'required',
             'autor'=> 'required',
             'year'=> 'required',
             'genero_id'=> 'required', //excepción
             'puntaje'=> 'required', //excepción
+            'imagen'=> 'image', //excepción
             'comentario' => 'required'
         ]);
 
+        if($request->hasFile('imagen')){
+            $direccion=$request->file('imagen')->store('public');
+            $request->merge(['portada'=> $direccion]);
+        }
         $request->merge(['user_id'=> Auth::id()]);
-
-        
         $libro = Libro::create($request->all());
-
         $libro->generos()->attach($request->genero_id);
+
+        //$libro->portada= $request->file('portada')->store('public');
 
         /*$libro = Libro::create([
             'user_id' => Auth::id(),
@@ -130,14 +137,27 @@ class LibroController extends Controller
      */
     public function update(Request $request, Libro $libro)
     {
+
         $request->validate([
             'titulo'=> 'required',
             'autor'=> 'required',
             'year'=> 'required',
             'genero_id'=> 'required', //excepción
             'puntaje'=> 'required', //excepción
+            'imagen'=> 'image', //excepción
             'comentario' => 'required'
         ]);
+
+        if($request->has('imagen')) {
+            $direccion=$request->file('imagen')->store('public');
+            $request->merge(['portada'=> $direccion]);
+            $url = str_replace('storage', 'public', $libro->portada);
+            Storage::delete($url);
+        }
+        else{
+            $request->merge(['portada'=> $libro->portada]);
+        }
+
 
         /*$libro->titulo = $request->titulo;
         $libro->autor = $request->autor;
@@ -147,11 +167,11 @@ class LibroController extends Controller
         $libro->comentario = $request->comentario;
 
         $libro->save();*/
+        //dd($request);
 
-        Libro::where('id', $libro->id)->update($request->except(['_token', '_method', 'genero_id']));
+        Libro::where('id', $libro->id)->update($request->except(['_token', '_method', 'genero_id', 'imagen']));
 
         $libro->generos()->sync($request->genero_id);
-
         return redirect('/libros')->with('editar','ok');
     }
 
@@ -163,6 +183,8 @@ class LibroController extends Controller
      */
     public function destroy(Libro $libro)
     {
+        $url = str_replace('storage', 'public', $libro->portada);
+        Storage::delete($url);
         $libro->delete();
         return redirect('/libros')->with('eliminar','ok');
     }
