@@ -51,57 +51,6 @@
     </div>
     </div>
     </div>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @if(session('eliminar')=='ok')
-    <script>
-        Swal.fire(
-        'Eliminado!',
-        'Tu libro se eliminó con éxito',
-        'success')
-    </script>
-    @endif
-    
-    @if(session('editar')=='ok')
-    <script>
-        Swal.fire(
-        'Editado!',
-        'Tu libro se actualizó con éxito',
-        'success')
-    </script>
-    @endif
-
-    
-    @if(session('crear')=='ok')
-    <script>
-        Swal.fire(
-        'Registro completo!',
-        'Tu libro se creó con éxito',
-        'success')
-    </script>
-    @endif
-
-    <script type="text/javascript">
-        function detener(evt){
-            evt.preventDefault();
-            Swal.fire({
-            title: '¿Está seguro?',
-            text: "Este libro se eliminará definitivamente!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, eliminar!',
-            cancelButtonText: 'Cancelar',
-            }).then((result) => {
-            if (result.isConfirmed) {
-                document.getElementById("Borrar").submit();
-            }
-            })
-
-
-        };
-    </script>
-    
 </x-layout>
 
 
