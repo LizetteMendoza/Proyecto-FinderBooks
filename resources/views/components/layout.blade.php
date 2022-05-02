@@ -14,7 +14,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="/">FinderBook NavBar</a>
+            <a class="navbar-brand ps-3" href="/"> <img src="{{asset('img/book3.png')}}" style="width: 20%" alt=""> FinderBook</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -187,6 +187,15 @@
         Swal.fire(
         'Ya has iniciado sesión!',
         '',
+        'success')
+    </script>
+    @endif
+
+    @if(session('contactar')=='ok')
+    <script>
+        Swal.fire(
+        'Haz contactado a un usuario',
+        'se envío tu correo y nombre de contacto, sí el usuario quiere ser tu amigo te enviará un email',
         'success')
     </script>
     @endif

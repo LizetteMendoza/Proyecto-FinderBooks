@@ -33,8 +33,9 @@ class LibroController extends Controller
     public function all()
     {
         $libros= Libro::with('generos','user')->get();
+        $userLog = Auth::id();
         //$libros = Libro::all();
-        return view('/libros.listaLibros', compact('libros'));
+        return view('/libros.listaLibros', compact('libros', 'userLog'));
     }
 
     /**
@@ -102,7 +103,7 @@ class LibroController extends Controller
         //$user  = Auth::user();
         //$user->libros()->save($libro);
 
-        return redirect('/libros')->with('crear','ok');;
+        return redirect('/libros')->with('crear','ok');
     }
 
     /**
@@ -192,6 +193,6 @@ class LibroController extends Controller
     public function enviarNotificacion(User $user){
         Mail::to($user->email)->send(new Bandeja());
 
-        return redirect()->back();
+        return redirect()->back()->with('contactar', 'ok');
     }
 }
