@@ -7,6 +7,7 @@ use App\Mail\Bandeja;
 use App\Models\Libro;
 use App\Models\User;
 use App\Models\Genero;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -25,13 +26,16 @@ class LibroController extends Controller
      */
     public function index()
     {
+        //Libros del usuario
         $libros = Auth::user()->libros;
         //$libros= Libro::with('generos')->get();
+
         return view('/libros.indexLibros', compact('libros'));
     }
 
     public function all()
     {
+        //Listado general
         $libros= Libro::with('generos','user')->get();
         $userLog = Auth::id();
         //$libros = Libro::all();
@@ -114,6 +118,8 @@ class LibroController extends Controller
      */
     public function show(Libro $libro)
     {
+        
+        $this->authorize('view', $libro);
         return view('libros.showLibro', compact('libro'));
     }
 
@@ -125,6 +131,9 @@ class LibroController extends Controller
      */
     public function edit(Libro $libro)
     {
+        if(!Gate::allows('acceder', $libro)){
+            abort(403);
+        };
         $generos = Genero::all();
         return view('/libros.formEdit', compact('libro', 'generos'));
     }
@@ -184,6 +193,10 @@ class LibroController extends Controller
      */
     public function destroy(Libro $libro)
     {
+        
+        if(!Gate::allows('acceder', $libro)){
+            abort(403);
+        };
         $url = str_replace('storage', 'public', $libro->portada);
         Storage::delete($url);
         $libro->delete();
