@@ -201,7 +201,7 @@
     @endif
 
     <script type="text/javascript">
-        function detener(evt){
+        function detener(evt, contenedor){
             evt.preventDefault();
             Swal.fire({
             title: '¿Está seguro?',
@@ -214,7 +214,7 @@
             cancelButtonText: 'Cancelar',
             }).then((result) => {
             if (result.isConfirmed) {
-                document.getElementById("Borrar").submit();
+                document.getElementById(contenedor).submit();
             }
             })
 
