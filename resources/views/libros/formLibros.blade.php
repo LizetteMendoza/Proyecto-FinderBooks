@@ -1,4 +1,10 @@
 <x-layout>
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta3/js/bootstrap-select.min.js"></script>
+
     <h1 class="text-info text-center"><img src="{{asset('img/add.png')}}" alt="">Agregar libro</h1>
     <div class="container p-5 border border-3 rounded w-75">
       <form action="/libros" enctype="multipart/form-data" method="POST"> {{--Crear--}}
@@ -19,7 +25,8 @@
           </div>
           <div  class="input-group mb-4 p-4">
             <label class="input-group-text btn-primary  bg-opacity-50" for="genero_id">Genero</label>
-            <select class="form-select" name="genero_id[]" multiple="multiple">
+            <select name="genero_id[]" class="selectpicker form-select" multiple data-live-search="true" required>
+                <option value=""></option>
                 @foreach ($generos as $genero)
                   <option value="{{$genero->id}}">{{$genero->genero}}</option>
                 @endforeach
@@ -35,7 +42,7 @@
           </div>
           <div  class="input-group mb-4 p-4">
             <label class="input-group-text btn-primary" for="puntaje">Puntaje</label>
-            <select class="form-select" name="puntaje" id="puntaje">
+            <select class="form-select" name="puntaje" id="puntaje" required>
                 <option value=""></option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -60,7 +67,7 @@
 
           <div class="form-group p-4">
             <label for="comentario" class="input-group-text btn-primary  bg-opacity-50">Comentario</label>
-            <textarea class="form-control" name="comentario" id="comentario" cols="30" rows="10">{{old('comentario')}}</textarea>
+            <textarea class="form-control" required name="comentario" id="comentario" cols="30" rows="10">{{old('comentario')}}</textarea>
             @error('comentario')
                 <div class="alert alert-danger">{{$message}}</div>
             @enderror <br>
@@ -68,9 +75,9 @@
           </div>
       </form>
     </div>
-    <script>
-      $().ready(function(){
-        $('#multiple').multiselect();
+    <script type="text/javascript">
+      $(document).ready(function() {
+          $('select').selectpicker();
       });
     </script>
 </x-layout>

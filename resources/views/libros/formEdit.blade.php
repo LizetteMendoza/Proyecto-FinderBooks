@@ -1,4 +1,11 @@
 <x-layout>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+
     <h1 class='text-center text-info'><img src="{{asset('img/edit.png')}}" alt=""> Editar libro</h1>
     <div class="container p-5  border border-3 rounded w-75">
     <form action="/libros/{{$libro->id}}" enctype="multipart/form-data" method="POST" class="px-4 py-3"> {{--Editar--}}
@@ -20,8 +27,9 @@
         </div>
         <div  class="input-group mb-4 p-4">
             <label class="input-group-text btn-primary" for="genero">Genero</label>
-            <select class="form-select" name="genero_id[]" multiple>
-                @foreach ($generos as $genero)
+            <select class="selectpicker form-select" name="genero_id[]" multiple>
+                <option value=""></option>
+                    @foreach ($generos as $genero)
                   <option value="{{$genero->id}}"{{isset($generos)&& array_search($genero->id, $libro->generos->pluck('id')->toArray())!== false ? 'selected': ''}}>{{$genero->genero}}</option>
                 @endforeach
             </select>
@@ -67,4 +75,9 @@
         </div>
     </form>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('select').selectpicker();
+        });
+      </script>
 </x-layout>
