@@ -118,8 +118,6 @@ class LibroController extends Controller
      */
     public function show(Libro $libro)
     {
-        
-        $this->authorize('view', $libro);
         return view('libros.showLibro', compact('libro'));
     }
 
@@ -131,9 +129,7 @@ class LibroController extends Controller
      */
     public function edit(Libro $libro)
     {
-        if(!Gate::allows('acceder', $libro)){
-            abort(403);
-        };
+        
         $generos = Genero::all();
         return view('/libros.formEdit', compact('libro', 'generos'));
     }
@@ -193,10 +189,6 @@ class LibroController extends Controller
      */
     public function destroy(Libro $libro)
     {
-        
-        if(!Gate::allows('acceder', $libro)){
-            abort(403);
-        };
         $url = str_replace('storage', 'public', $libro->portada);
         Storage::delete($url);
         $libro->delete();
