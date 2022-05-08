@@ -35,7 +35,7 @@
           </div>
           <div class="form-group p-4">
             <label for="year" class="input-group-text btn-primary  bg-opacity-50">Año</label>
-            <input type="text" class="form-control" name="year" value="{{old('year')}}" required>
+            <input type="text" class="form-control" name="year" value="{{old('year')}}" pattern="[0-9]{4}" title="Ingrese el año en numero" required>
             @error('year')
                 <div class="alert alert-danger">{{$message}}</div>
             @enderror
