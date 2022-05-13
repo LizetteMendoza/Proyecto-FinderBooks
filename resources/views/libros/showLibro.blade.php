@@ -1,5 +1,5 @@
 <x-layout>
-    <h1 class="text-center text-info"><img src="{{asset('img/det.png')}}" alt=""> Especificaciones del libro</h1>
+    <h1 class="text-center text-info fw-bold"><img src="{{asset('img/det.png')}}" alt=""> Especificaciones del libro</h1>
     <h3 class="text-primary ms-4">Usuario: {{$libro->user->name}}</h3>
     <!--<a href="/libros">Inicio</a>-->
     <div class="container-fluid px-4 justify-content-center">

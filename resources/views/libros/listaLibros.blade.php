@@ -1,6 +1,6 @@
 <x-layout>
     <main>
-        <h1 class="mt-4 text-info text-center p-4" ><img src="{{asset('img/details1.png')}}" alt="icono libro"> Listado general de libros</h1>
+        <h1 class="mt-4 text-info text-center fw-bold p-4" ><img src="{{asset('img/details1.png')}}" alt="icono libro"> Listado general de libros</h1>
         <!--<a href="libros/create">Añadir libro</a> <a href="index">Inicio</a>-->
         <div class="container p-4">
             <table class="table">

@@ -15,7 +15,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="/"> <img src="{{asset('img/book3.png')}}" style="width: 20%" alt=""> FinderBook</a>
+            <a class="navbar-brand fw-bold ps-3" href="/"> <img src="{{asset('img/book3.png')}}" style="width: 20%" alt=""> FinderBook</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -120,10 +120,7 @@
                         </div>-->
                     </div>
                     <br><br><br><br><br>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        FinderBook User
-                    </div>
+                    
                 </nav>
             </div>
             <div id="layoutSidenav_content">
@@ -134,11 +131,6 @@
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; FinderBook 2022</div>
-                            <div>
-                                <a href="policy">Privacy Policy</a>
-                                &middot;
-                                <a href="terms">Terms &amp; Conditions</a>
-                            </div>
                         </div>
                     </div>
                 </footer>

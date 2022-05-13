@@ -1,5 +1,5 @@
 <x-layout>
-    <h1 class="p-4 text-info text-center"><img src="{{asset('img/list2.png')}}" alt="icono libro"> Mi listado de libros</h1>
+    <h1 class="p-4 text-info text-center fw-bold"><img src="{{asset('img/list2.png')}}" alt="icono libro"> Mi listado de libros</h1>
 <!--<a href="libros/create">Añadir libro</a> <a href="index">Inicio</a>-->
     <div class="conteiner-fluid">
     <div class="card-body">

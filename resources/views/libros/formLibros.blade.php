@@ -5,7 +5,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta3/js/bootstrap-select.min.js"></script>
 
-    <h1 class="text-info text-center"><img src="{{asset('img/add.png')}}" alt="">Agregar libro</h1>
+    <h1 class="text-info text-center fw-bold"><img src="{{asset('img/add.png')}}" alt="">Agregar libro</h1>
     <div class="container p-5 border border-3 rounded w-75">
       <form action="/libros" enctype="multipart/form-data" method="POST"> {{--Crear--}}
           @csrf

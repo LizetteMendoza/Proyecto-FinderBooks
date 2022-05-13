@@ -6,7 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
 
-    <h1 class='text-center text-info'><img src="{{asset('img/edit.png')}}" alt=""> Editar libro</h1>
+    <h1 class='text-center text-info fw-bold'><img src="{{asset('img/edit.png')}}" alt=""> Editar libro</h1>
     <div class="container p-5  border border-3 rounded w-75">
     <form action="/libros/{{$libro->id}}" enctype="multipart/form-data" method="POST" class="px-4 py-3"> {{--Editar--}}
         @method('PATCH')
